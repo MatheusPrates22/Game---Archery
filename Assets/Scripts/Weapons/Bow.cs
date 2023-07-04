@@ -6,6 +6,11 @@ using UnityEngine.InputSystem;
 
 public class Bow : MonoBehaviour
 {
+    [SerializeField] GameObject startGO;
+    [SerializeField] GameObject middleGO;
+    [SerializeField] GameObject endGO;
+    [SerializeField] Transform arrowTransform;
+
     private Animator _animator;
 
     private void Awake() {
@@ -20,6 +25,37 @@ public class Bow : MonoBehaviour
     }
 
     public void Shoot() {
-        Debug.Log("Shooting");
+        // Debug.Log("Shooting");
     }
+
+    public void PlaceArrowAtStartPosition(){
+        Debug.Log("Starting position");
+        middleGO.SetActive(false);
+        endGO.SetActive(false);
+        startGO.SetActive(true);
+        arrowTransform.SetParent(startGO.transform);
+        arrowTransform.localPosition = Vector3.zero;
+        arrowTransform.gameObject.SetActive(true);
+    }
+
+    public void PlaceArrowAtMiddlePosition(){
+        Debug.Log("Middle position");
+        endGO.SetActive(false);
+        startGO.SetActive(false);
+        middleGO.SetActive(true);
+        arrowTransform.SetParent(middleGO.transform);
+        arrowTransform.localPosition = Vector3.zero;
+        arrowTransform.gameObject.SetActive(true);
+    }
+
+    public void PlaceArrowAtEndPosition(){
+        Debug.Log("End position");
+        startGO.SetActive(false);
+        middleGO.SetActive(false);
+        endGO.SetActive(true);
+        arrowTransform.SetParent(endGO.transform);
+        arrowTransform.localPosition = Vector3.zero;
+        arrowTransform.gameObject.SetActive(true);
+    }
+
 }
