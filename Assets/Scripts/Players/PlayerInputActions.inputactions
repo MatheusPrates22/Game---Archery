@@ -24,18 +24,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
+                    "name": "AimAndShoot",
                     "type": "Button",
                     "id": "720ca38a-b8d5-4520-a11e-f4a3fa079637",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Shoot",
-                    "type": "Button",
-                    "id": "0c74d9d7-c78e-4a3f-8e9c-8df7648630b1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -100,17 +91,6 @@
                 },
                 {
                     "name": "",
-                    "id": "88b8ff32-08d4-474c-aa6c-29d4afb53117",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8c350c74-6f5c-476e-bcf3-1adc18bfa7b6",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -123,22 +103,11 @@
                 {
                     "name": "",
                     "id": "45e6d313-6520-4f12-9072-333633a460bc",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0456922c-c4d7-4073-8be2-3e9053db0287",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
+                    "action": "AimAndShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

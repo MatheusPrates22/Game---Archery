@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263568859619669866}
+  - component: {fileID: 9041112692498233388}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 5715983672563731027}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9041112692498233388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142646531243873036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0aa53d068bf8e4a97b192db40355f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyesGO: {fileID: 7068165602793854652}
+  bow: {fileID: 8055121980977888836}
 --- !u!1 &3212206891776419546
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,8 +259,8 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 974758321553493916}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 9041112692498233388}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Aim
         m_Mode: 0
         m_Arguments:
@@ -260,8 +275,8 @@ MonoBehaviour:
     m_ActionName: Player/Aim[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 974758321553493916}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 9041112692498233388}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Shoot
         m_Mode: 0
         m_Arguments:
@@ -292,8 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponGO: {fileID: 2142646531243873036}
-  eyesGO: {fileID: 7068165602793854652}
-  bow: {fileID: 8055121980977888836}
   jumpForce: 5
   moveSpeed: 500
 --- !u!95 &6192557502438613131
@@ -359,6 +372,10 @@ PrefabInstance:
     - target: {fileID: 1516371452458103676, guid: bb46fd68e6aef5b458a976e243bf94b1, type: 3}
       propertyPath: m_Name
       value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516371452458103676, guid: bb46fd68e6aef5b458a976e243bf94b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7879239732154095073, guid: bb46fd68e6aef5b458a976e243bf94b1, type: 3}
       propertyPath: m_RootOrder

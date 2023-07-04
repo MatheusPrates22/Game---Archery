@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Bow : MonoBehaviour
 {
@@ -9,7 +11,6 @@ public class Bow : MonoBehaviour
     private void Awake() {
         _animator = GetComponent<Animator>();
     }
-    
     public void StartAiming() {
         _animator.SetBool("aiming", true);
     }

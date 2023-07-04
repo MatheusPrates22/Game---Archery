@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     private bool _doubleJump = false;
 
     [SerializeField] private GameObject weaponGO;
-    [SerializeField] private GameObject eyesGO;
-    [SerializeField] private Bow bow;
     [SerializeField] private float jumpForce = 300f;
     [SerializeField] private float moveSpeed = 300f;
 
@@ -53,39 +51,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Aim(InputAction.CallbackContext callbackContext){
-        if (callbackContext.started){
-            weaponGO.SetActive(true);
-            bow.StartAiming();
-        }
-        if (callbackContext.performed){
-            bow.Shoot();
-        }
-        if (callbackContext.canceled){
-            weaponGO.SetActive(false);
-            bow.StopAiming();
-        }
-    }
-
-    public void Shoot(InputAction.CallbackContext callbackContext){
-        if (callbackContext.performed){
-            
-        }
-    }
-
-    private void Update() {
-        // if (Mouse.current.leftButton.wasPressedThisFrame){
-        Vector2 mousePosition = GetWorldMousePosition();
-        Vector2 eyesPosition = new Vector2(eyesGO.transform.position.x, eyesGO.transform.position.y);
-        // transform.eulerAngles = new Vector3(0f, 0f, 0f);
-        Debug.DrawLine(mousePosition, eyesPosition, Color.red);
-        float radAngle = Vector2.Angle(mousePosition, eyesPosition);
-        float degreeAngle = radAngle * Mathf.Rad2Deg;
-        Debug.Log(degreeAngle);
-        // weaponGO.transform.eulerAngles = Vector2.Angle(mousePosition, eyesPosition);
-        // }
-    }
-
     private void FixedUpdate() {
         _rb.AddForce(new Vector3(_move.x, 0, _move.y) * Time.fixedDeltaTime * moveSpeed, ForceMode2D.Force);
     }
@@ -103,11 +68,4 @@ public class Player : MonoBehaviour
         }
     }
 
-    private Vector2 GetWorldMousePosition(){
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        // mousePosition.z = Camera.main.nearClipPlane;
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 worldMousePosition2Vector2 = new Vector2(worldMousePosition.x, worldMousePosition.y);
-        return worldMousePosition2Vector2;
-    }
 }
