@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext callbackContext){
         if (callbackContext.performed){
-            
+            Debug.Log("Shotted");
         }
     }
 }

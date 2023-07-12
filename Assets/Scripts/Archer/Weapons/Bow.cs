@@ -12,6 +12,8 @@ public class Bow : MonoBehaviour
     [SerializeField] Transform arrowTransform;
 
     private Animator _animator;
+    private enum ForceMode { Weak, Normal, Strong };
+    // private ForceMode _forceMode;
 
     private void Awake() {
         _animator = GetComponent<Animator>();
@@ -25,10 +27,11 @@ public class Bow : MonoBehaviour
     }
 
     public void Shoot() {
-        // Debug.Log("Shooting");
+        
     }
 
     public void PlaceArrowAtStartPosition(){
+        // _forceMode = ForceMode.Weak;
         Debug.Log("Starting position");
         middleGO.SetActive(false);
         endGO.SetActive(false);
@@ -39,6 +42,7 @@ public class Bow : MonoBehaviour
     }
 
     public void PlaceArrowAtMiddlePosition(){
+        // _forceMode = ForceMode.Normal;
         Debug.Log("Middle position");
         endGO.SetActive(false);
         startGO.SetActive(false);
@@ -49,6 +53,7 @@ public class Bow : MonoBehaviour
     }
 
     public void PlaceArrowAtEndPosition(){
+        // _forceMode = ForceMode.Strong;
         Debug.Log("End position");
         startGO.SetActive(false);
         middleGO.SetActive(false);
