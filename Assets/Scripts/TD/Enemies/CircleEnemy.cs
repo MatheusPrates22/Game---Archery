@@ -10,9 +10,11 @@ public class CircleEnemy : MonoBehaviour
 
     private List<Transform> pathTransform;
 
-    private int life;
+    [SerializeField] private int life;
     private int indexPath = 0;
 
+    public int WaveIndex {get; set; }
+    
     private void Awake() {
         life = maxLife;
         pathTransform = new List<Transform>();
@@ -37,6 +39,7 @@ public class CircleEnemy : MonoBehaviour
         }
     }
     private void Move(){
+        if (pathTransform.Count <= 0) return; 
         Vector3 destination = pathTransform[indexPath].transform.position;
         Vector3 newPosition = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
         transform.position = newPosition;

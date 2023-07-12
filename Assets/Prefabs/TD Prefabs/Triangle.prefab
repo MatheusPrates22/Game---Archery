@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877807388314673615}
   m_Layer: 0
-  m_Name: Bullet Respawn
+  m_Name: Bullet Respawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0e89bd89c7f594383106842876a39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletRespawnTransform: {fileID: 0}
+  bulletRespawnTransform: {fileID: 877807388314673615}
+  shootWaitingTimer: 1
 --- !u!114 &348677448708982750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8147771cb10f40544b3b2421d8355311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 2.5
+  color: {r: 1, g: 1, b: 1, a: 1}

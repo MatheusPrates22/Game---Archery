@@ -265,9 +265,9 @@ MonoBehaviour:
   - {fileID: 4687689845600086545, guid: 202fb367377f6014eb4ba137e19ed617, type: 3}
   - {fileID: 4687689845600086545, guid: 202fb367377f6014eb4ba137e19ed617, type: 3}
   enemiesTimeSpawnList:
-  - 0.5
-  - 0.5
-  - 0.5
+  - 1
+  - 1
+  - 1
 --- !u!1 &329857915
 GameObject:
   m_ObjectHideFlags: 0
@@ -11818,7 +11818,7 @@ MonoBehaviour:
   waves:
   - {fileID: 171875417}
   enemyGOPrefabTest: {fileID: 4687689845600086545, guid: 202fb367377f6014eb4ba137e19ed617, type: 3}
-  initialPositionTest: {x: -5.5, y: 1, z: 0}
+  initialPositionTest: {x: -5.25, y: 1, z: 0}
 --- !u!1 &1561553090
 GameObject:
   m_ObjectHideFlags: 0
@@ -13311,17 +13311,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1385834302}
     m_Modifications:
+    - target: {fileID: 348677448708982750, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
+      propertyPath: range
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4137309522212000519, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4137309522212000519, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.26
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 4137309522212000519, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4137309522212000519, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13358,6 +13362,10 @@ PrefabInstance:
     - target: {fileID: 7633196881463654118, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
       propertyPath: m_Name
       value: Triangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296379411311100991, guid: cc81baa6869ac234ea6b92a288f0a5dc, type: 3}
+      propertyPath: shootWaitingTimer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

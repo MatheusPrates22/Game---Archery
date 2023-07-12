@@ -43,7 +43,6 @@ public class EnemiesManager : MonoBehaviour
     {
         GameObject newEnemyGO = Instantiate(enemyPrefab, initialPosition, Quaternion.identity, Instance.waves[0].transform);
         CircleEnemy enemy = newEnemyGO.GetComponent<CircleEnemy>();
-        // enemy.SetPath(Instance.pathTransform);
         return enemy;
     }
 
@@ -55,6 +54,7 @@ public class EnemiesManager : MonoBehaviour
         for(int i = 0; i < enemiesPrefabs.Count; i++){
             CircleEnemy enemy = SpawnEnemy(enemiesPrefabs[i]);
             SetDefaultPath(enemy);
+            SetEnemyWaveIndex(enemy, i);
             yield return new WaitForSeconds(enemiesTimeSpawn[i]);
         }
     }
@@ -65,6 +65,11 @@ public class EnemiesManager : MonoBehaviour
 
     public static void SetDefaultPath(CircleEnemy enemy){
         enemy.SetPath(Instance.pathTransform);
+    }
+
+    private static void SetEnemyWaveIndex(CircleEnemy enemy, int index){
+        enemy.WaveIndex = index;
+        enemy.name += index.ToString();
     }
 
     
