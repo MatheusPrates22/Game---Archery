@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,40 +6,61 @@ using UnityEngine.Tilemaps;
 
 public class TetrisManager : MonoBehaviour
 {
-    [SerializeField] private KeyCode newBlockKeyCode = KeyCode.N;
-    [SerializeField] private GameObject prefabBlockI;
-    [SerializeField] private Transform gridTransform;
-    // [SerializeField] private Tilemap tilemap;
+    private static TetrisManager Instance;
 
-    private void Start() {
-        // StartCoroutine(QuedaBlocos());
+    public enum TetraminoesBlock {I, J, L, O, S, T, Z}
+
+    [SerializeField] private KeyCode newBlockKeyCode = KeyCode.N;
+    [SerializeField] private KeyCode rotateBlockKeyCode = KeyCode.R;
+    [SerializeField] private GameObject[] piecesPrefab;
+    [SerializeField] private Transform spawnPointTransform;
+
+
+    private void Awake() {
+        if (Instance == null) Instance = this; else Destroy(Instance);
     }
 
     private void Update() {
         if (Input.GetKeyDown(newBlockKeyCode)) {
-            Debug.Log("New Block");
-            GameObject newBlock = Instantiate(prefabBlockI, gridTransform);
-            Tilemap tilemap;
-            if (newBlock.TryGetComponent<Tilemap>(out tilemap)) {
-                Vector3Int gridPosition = tilemap.WorldToCell(newBlock.transform.position);
-                Debug.Log(gridPosition);
-            }
+            InstantiateRandomTetramino();
+        }
+        if (Input.GetKeyDown(rotateBlockKeyCode)) {
+            InstantiateTetraminoes(GetRandomTetramino());
         }
     }
 
-    // private IEnumerator QuedaBlocos()
-    // {
-    //     while (true)
-    //     {
-    //         // Instancie o bloco do prefab.
-    //         GameObject novoBloco = Instantiate(prefabBlockI, gridTransform);
+    public static GameObject InstantiateRandomTetramino() {
+        return InstantiateTetraminoes(GetRandomTetramino());
+    }
 
-    //         // Ajuste a posição inicial do bloco para que ele comece acima da grade.
-    //         novoBloco.transform.position = new Vector3(Random.Range(-gridTransform.localScale.x / 2f, grid.localScale.x / 2f),
-    //                                                   grid.localScale.y,
-    //                                                   0f);
+    public static GameObject InstantiateTetraminoes(TetraminoesBlock tetraminoe) {
+        switch (tetraminoe) {
+            case TetraminoesBlock.I:
+                return Instantiate(Instance.piecesPrefab[0], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.J:
+                return Instantiate(Instance.piecesPrefab[1], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.L:
+                return Instantiate(Instance.piecesPrefab[2], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.O:
+                return Instantiate(Instance.piecesPrefab[3], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.S:
+                return Instantiate(Instance.piecesPrefab[4], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.T:
+                return Instantiate(Instance.piecesPrefab[5], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            case TetraminoesBlock.Z:
+                return Instantiate(Instance.piecesPrefab[6], Instance.spawnPointTransform.position, Quaternion.identity, Instance.spawnPointTransform);
+            default:
+                GameObject newGameObject = new GameObject();
+                return newGameObject;
+        }
+    }
 
-    //         yield return new WaitForSeconds(intervaloQueda);
-    //     }
-    // }
+    private static TetraminoesBlock GetRandomTetramino() {
+        System.Random random = new System.Random();
+        Array values = Enum.GetValues(typeof(TetraminoesBlock));
+        TetraminoesBlock randomTetramino = (TetraminoesBlock)values.GetValue(random.Next(values.Length));
+        return randomTetramino;
+    }
+
+
 }
