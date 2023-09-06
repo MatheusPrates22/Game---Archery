@@ -52,5 +52,11 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "Game - Archery.sln"
+    "dotnet.defaultSolution": "Game - Archery.sln",
+    "cSpell.words": [
+        "Tetramino",
+        "tetraminoe",
+        "Tetraminoe",
+        "Tetraminoes"
+    ]
 }
