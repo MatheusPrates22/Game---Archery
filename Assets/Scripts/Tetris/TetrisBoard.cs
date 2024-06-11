@@ -42,6 +42,15 @@ public class TetrisBoard : MonoBehaviour
         return true;
     }
 
+    public static bool IsInsideBoard(Vector3 cord) {
+        if (cord.x < 0 || 
+            cord.x > WIDTH || 
+            cord.y < 0 || 
+            cord.y > HEIGHT) 
+            return false;
+        return true;
+    }
+
     public static bool HasAnyPiece(Vector2Int cord) {
         for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < HEIGHT; j++) {

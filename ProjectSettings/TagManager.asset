@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Breakout Block
+  - Breakout Boundary
+  - Breakout Floor
+  - Breakout Ceiling
+  - Breakout Walls
   layers:
   - Default
   - TransparentFX
